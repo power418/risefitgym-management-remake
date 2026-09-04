@@ -18,12 +18,10 @@
 **/*.tar.gz
 **/*.tgz
 **/*.log
-package-lock.json
 **/*.bun
 
 *.log
 *.lock
-*.json
 *.desktop
 *.exe
 *.bin

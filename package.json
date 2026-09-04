@@ -1,0 +1,19 @@
+{
+  "name": "risefit",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "backend:dev": "bun run --cwd backend dev",
+    "backend:test": "bun run --cwd backend test",
+    "backend:prisma:generate": "bun run --cwd backend prisma:generate",
+    "backend:prisma:migrate": "bun run --cwd backend prisma:migrate",
+    "backend:prisma:seed": "bun run --cwd backend prisma:seed",
+    "frontend:dev": "bun run --cwd frontend dev",
+    "frontend:lint": "bun run --cwd frontend lint",
+    "frontend:build": "bun run --cwd frontend build",
+    "frontend:preview": "bun run --cwd frontend preview"
+  }
+}
