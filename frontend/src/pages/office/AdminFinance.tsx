@@ -21,7 +21,7 @@ import {
   updateFinanceTransaction,
   type FinanceTransaction,
 } from "@/services/admin"
-import { Pencil, Plus, RefreshCcw, Trash2 } from "lucide-react"
+import { CreditCard, Pencil, Plus, Receipt, RefreshCcw, Trash2 } from "lucide-react"
 import { useEffect, useMemo, useState } from "react"
 
 const PG_INT_MAX = 2_147_483_647
@@ -293,23 +293,57 @@ export default function AdminFinance() {
       ) : null}
 
       <div className="grid gap-4 lg:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>Invoice</CardTitle>
+        <Card className="border-border/60 shadow-sm">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+            <div className="space-y-1">
+              <CardTitle className="text-base font-semibold">Faktur & Tagihan (Invoice)</CardTitle>
+              <CardDescription>
+                Penerbitan faktur tagihan transaksi membership dan pemesanan produk.
+              </CardDescription>
+            </div>
+            <div className="rounded-lg bg-primary/10 p-2.5 text-primary">
+              <Receipt className="size-5" />
+            </div>
           </CardHeader>
-          <CardContent className="text-muted-foreground text-sm">
-            Endpoint: <code className="font-mono">POST /invoices</code>,{" "}
-            <code className="font-mono">GET /invoices/:id</code>,{" "}
-            <code className="font-mono">GET /invoices/order/:orderId</code>.
+          <CardContent className="space-y-3 pt-1">
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge variant="secondary" className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20 text-xs">
+                Sistem Otomatis Aktif
+              </Badge>
+              <Badge variant="outline" className="text-xs">
+                Faktur Digital
+              </Badge>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Setiap transaksi yang dibuat oleh member otomatis menghasilkan invoice digital resmi beserta nomor transaksi unik.
+            </p>
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Pembayaran</CardTitle>
+        <Card className="border-border/60 shadow-sm">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+            <div className="space-y-1">
+              <CardTitle className="text-base font-semibold">Gerbang Pembayaran (Midtrans)</CardTitle>
+              <CardDescription>
+                Integrasi pembayaran multi-channel otomatis dan instan.
+              </CardDescription>
+            </div>
+            <div className="rounded-lg bg-primary/10 p-2.5 text-primary">
+              <CreditCard className="size-5" />
+            </div>
           </CardHeader>
-          <CardContent className="text-muted-foreground text-sm">
-            Token Midtrans: <code className="font-mono">POST /payment/token</code>.
+          <CardContent className="space-y-3 pt-1">
+            <div className="flex flex-wrap items-center gap-2">
+              <Badge variant="secondary" className="bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20 text-xs">
+                Gateway Terhubung
+              </Badge>
+              <Badge variant="outline" className="text-xs">
+                QRIS & Virtual Account
+              </Badge>
+            </div>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Mendukung verifikasi pembayaran instan tanpa konfirmasi manual melalui webhook notifikasi resmi.
+            </p>
           </CardContent>
         </Card>
       </div>

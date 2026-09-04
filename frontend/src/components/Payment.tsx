@@ -82,7 +82,7 @@ const Payment = () => {
             </CardHeader>
             <CardContent className="space-y-4">
                 <p className="text-muted-foreground text-sm">
-                    Gunakan endpoint backend <code className="font-mono">POST /payment/token</code> untuk mendapatkan token.
+                    Masukkan Order ID transaksi untuk memproses pembayaran online melalui payment gateway Midtrans.
                 </p>
 
                 {error ? (

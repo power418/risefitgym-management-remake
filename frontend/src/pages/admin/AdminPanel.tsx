@@ -369,14 +369,23 @@ export default function AdminPanel() {
         </CardContent>
       </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Users</CardTitle>
+      <Card className="border-border/60 shadow-sm">
+        <CardHeader className="space-y-1">
+          <CardTitle className="text-base font-semibold">Manajemen Pengguna & Otoritas</CardTitle>
+          <CardDescription>
+            Pengaturan akun pengguna dan penetapan role wewenang sistem (Admin, Backoffice, Member).
+          </CardDescription>
         </CardHeader>
-        <CardContent className="text-muted-foreground text-sm">
-          Endpoint: <code className="font-mono">GET /users</code>,{" "}
-          <code className="font-mono">GET /users/:id</code>,{" "}
-          <code className="font-mono">PATCH /users/:id/role</code> (ADMIN).
+        <CardContent className="flex flex-wrap items-center gap-2 pt-1">
+          <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 text-xs">
+            Role Management Aktif
+          </Badge>
+          <Badge variant="outline" className="text-xs">
+            Akses Bertingkat
+          </Badge>
+          <span className="text-xs text-muted-foreground ml-1">
+            Dikelola dengan enkripsi token akses aman.
+          </span>
         </CardContent>
       </Card>
 

@@ -127,9 +127,9 @@ export const adminFinanceRoutes = new Elysia({ prefix: "/admin-finance" })
         const transaction = await prisma.financeTransaction.update({
           where: { id: params.id },
           data: {
-            description: body.description?.trim(),
-            amount: body.amount,
-            occurredAt: nextOccurredAt,
+            ...(body.description !== undefined ? { description: body.description.trim() } : {}),
+            ...(body.amount !== undefined ? { amount: body.amount } : {}),
+            ...(nextOccurredAt ? { occurredAt: nextOccurredAt } : {}),
           },
           select: {
             id: true,
